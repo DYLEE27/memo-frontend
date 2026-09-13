@@ -36,7 +36,7 @@ export default function App() {
         fontFamily: "sans-serif",
       }}
     >
-      <h1>📝 메모장</h1>
+      <h1>📝 나의 메모장 수정</h1>
 
       <div style={{ display: "flex", gap: 8 }}>
         <input
