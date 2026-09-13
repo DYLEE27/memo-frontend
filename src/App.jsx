@@ -6,28 +6,59 @@ export default function App() {
   const [memos, setMemos] = useState([]);
   const [text, setText] = useState("");
 
-  useEffect(() => {
-    setMemos([{ id: 1, content: "첫 번째 메모(임시 데이터)" }]);
-  }, []);
+// useEffect(() => {
+// { loadMemos(); }, []);
+//   setMemos([{ id: 1, content: "첫 번째 메모(임시 데이터)" }]);
+//   }, []);
 
-  const addMemo = () => {
+//   const addMemo = () => {
+//     if (!text.trim()) return;
+
+//     setMemos([
+//       ...memos,
+//       {
+//         id: Date.now(),
+//         content: text,
+//       },
+//     ]);
+
+//     setText("");
+//   };
+
+//   const deleteMemo = (id) => {
+//     setMemos(memos.filter((m) => m.id !== id));
+//   };
+
+ // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+  // ★ 수정 시작 — 교재 3.4 fetch 연결 부분
+
+  useEffect(() => { loadMemos(); }, []);
+
+  const loadMemos = async () => {
+    const res = await fetch(`${API_URL}/memos`);   // 목록 조회 GET
+    setMemos(await res.json());
+  };
+
+  const addMemo = async () => {
     if (!text.trim()) return;
 
-    setMemos([
-      ...memos,
-      {
-        id: Date.now(),
-        content: text,
-      },
-    ]);
+    await fetch(`${API_URL}/memos`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content: text }),   // 자바스크립트 객체 → JSON 문자열
+    });
 
     setText("");
+    loadMemos();
   };
 
-  const deleteMemo = (id) => {
-    setMemos(memos.filter((m) => m.id !== id));
+  const deleteMemo = async (id) => {
+    await fetch(`${API_URL}/memos/${id}`, { method: "DELETE" });
+    loadMemos();
   };
 
+  // ★ 수정 끝
+  // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
   return (
     <div
       style={{
@@ -36,7 +67,7 @@ export default function App() {
         fontFamily: "sans-serif",
       }}
     >
-      <h1>📝 나의 메모장 수정</h1>
+      <h1>📝 나의 메모장 수정 </h1>
 
       <div style={{ display: "flex", gap: 8 }}>
         <input
