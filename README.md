@@ -1,16 +1,33 @@
-# React + Vite
+# BAF681 Cloud Computing Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React, FastAPI, Vercel, Render를 이용하여 구현한 간단한 풀스택 메모 서비스입니다.  
+개인 소개 페이지와 메모 실습 페이지를 함께 배포하고, 프론트엔드에서 FastAPI 백엔드 API를 호출하도록 구성했습니다.
 
-Currently, two official plugins are available:
+## 주요 구성
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Frontend: React + Vite
+- Backend: FastAPI
+- Database: SQLite
+- Frontend Deployment: Vercel
+- Backend Deployment: Render
+- Source Code: GitHub
 
-## React Compiler
+## 주요 기능
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 메모 조회
+- 메모 추가
+- 메모 삭제
+- React 프론트엔드와 FastAPI 백엔드 연동
+- 개인 소개 HTML 페이지 제공
+- 소개 페이지에서 메모 실습 페이지로 이동 가능
 
-## Expanding the Oxlint configuration
+## 배포 주소
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Memo App: https://memo-frontend-umber.vercel.app
+- Introduction Page: https://memo-frontend-umber.vercel.app/intro.html
+- Backend Swagger UI: https://memo-backend-kz0g.onrender.com/docs
+
+## GitHub
+
+- Frontend: https://github.com/DYLEE27/memo-frontend
+- Backend: https://github.com/DYLEE27/memo-backend
